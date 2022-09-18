@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/blog', {
 });
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({
-  extended: true
+  extended: false
 }));
 app.get('/', function (req, res) {
   var articles = [{
