@@ -12,7 +12,9 @@ mongoose.connect('mongodb://localhost/blog', {
   useUnifiedTopology: true
 });
 app.set('view engine', 'ejs');
-app.use('/articles', articleRouter);
+app.use(express.urlencoded({
+  extended: true
+}));
 app.get('/', function (req, res) {
   var articles = [{
     title: 'Test Article',
@@ -27,4 +29,5 @@ app.get('/', function (req, res) {
     articles: articles
   });
 });
+app.use('/articles', articleRouter);
 app.listen(5600);
